@@ -5,7 +5,7 @@ export interface CellProps {
   width: number
   height: number
   id: string
-  onClick: () => void
+  onClick?: () => void
 }
 export const Cell: React.FC<CellProps> = ({
   alive,
@@ -16,10 +16,10 @@ export const Cell: React.FC<CellProps> = ({
 }) => {
   const classes = `${styles.cell} ${alive ? styles.cellAlive : styles.cellDead}`
   return (
-    <div      
+    <div
       id={id}
       className={classes}
-      style={{ width, height, }}
+      style={{ width, height }}
       onClick={onClick}
       data-testid={id}
     ></div>

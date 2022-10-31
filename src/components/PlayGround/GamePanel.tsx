@@ -5,11 +5,15 @@ import { AuthContext } from "../Context"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { GAME_FIELDWIDTH, GAME_FIELDHEIGHT, GAME_CELLCOUNT, GAME_POPULATION, GAME_SPEED } from "../Game/Game"
+import {
+  GAME_FIELDWIDTH,
+  GAME_FIELDHEIGHT,
+  GAME_CELLCOUNT,
+  GAME_POPULATION,
+  GAME_SPEED,
+} from "../Game/Game"
 
-interface GamePanelProps {}
-
-export const GamePanel: React.FC<GamePanelProps> = ({}) => {
+export const GamePanel: React.FC = ({}) => {
   const dispatch = useDispatch()
   const gameState = useSelector<boolean[], boolean[]>((state) => state)
 
@@ -40,11 +44,11 @@ export const GamePanel: React.FC<GamePanelProps> = ({}) => {
     }
   })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const logoutButtonClick = () => {
-    localStorage.clear();
-    navigate("/login", { replace: true });
+    localStorage.clear()
+    navigate("/login", { replace: true })
   }
   return (
     <div style={{ width: GAME_FIELDWIDTH }}>
@@ -54,11 +58,10 @@ export const GamePanel: React.FC<GamePanelProps> = ({}) => {
           setUserName: setUserName,
         }}
       >
-        <div style={{fontSize: 18, paddingBottom: 20, color: "red"}} >Welcome to game of life, {localStorage.getItem("auth")}! &nbsp;&nbsp;&nbsp; 
-          <button
-            type="submit"
-            onClick={() => logoutButtonClick()}
-          >
+        <div style={{ fontSize: 18, paddingBottom: 20, color: "red" }}>
+          Welcome to game of life, {localStorage.getItem("auth")}!
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" onClick={() => logoutButtonClick()}>
             Logout
           </button>
         </div>

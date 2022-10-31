@@ -5,4 +5,11 @@ export default {
   component: FieldProp,
 }
 
-export const FieldPropDefault = () => <FieldProp />
+export const FieldPropDefault = () => (
+  <FieldProp
+    onWidthChange={() => {}}
+    onHeightChange={() => {}}
+    onCellCountChange={() => {}}
+    onPopulationChange={() => {}}
+  />
+)

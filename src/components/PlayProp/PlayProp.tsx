@@ -15,7 +15,6 @@ export const PlayProp = ({
   onRestart,
   onSpeedChange,
 }: PlayPropProps) => {
-
   const [isRunnung, setIsRunnung] = useState(true)
   const onClickRunButton = () => {
     setIsRunnung((prev) => !prev)
@@ -34,8 +33,7 @@ export const PlayProp = ({
         <div
           data-testid="speed"
           className={`${styles.playProp} ${styles.playPropLabel}`}
-        >
-        </div>
+        ></div>
         <div className={`${styles.playProp} ${styles.speedStepper}`}>
           <SpeedEdit
             startValue={GAME_SPEED}
@@ -45,7 +43,9 @@ export const PlayProp = ({
         <div
           data-testid="run"
           className={
-            isRunnung ? `${btnStyle} ${styles.stop}` : `${btnStyle} ${styles.play}`
+            isRunnung
+              ? `${btnStyle} ${styles.stop}`
+              : `${btnStyle} ${styles.play}`
           }
           onClick={onClickRunButton}
         ></div>

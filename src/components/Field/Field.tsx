@@ -42,7 +42,10 @@ export const Field: React.FC<FieldProps> = ({
   const elemWidth = cellCount && width ? width / elemInRow : 0
   const elemHeight = cellCount && height ? height / elemInRow : 0
   width = elemInRow > 0 ? elemInRow * elemWidth : width
-  height = cellCount && elemInRow > 0 ? Math.ceil(cellCount / elemInRow) * elemHeight : height
+  height =
+    cellCount && elemInRow > 0
+      ? Math.ceil(cellCount / elemInRow) * elemHeight
+      : height
   return (
     <div key="fld2">
       <div className={styles.header}>{title}</div>
@@ -54,7 +57,9 @@ export const Field: React.FC<FieldProps> = ({
           height,
         }}
       >
-        {cellCount ? renderChildren(elemWidth - 2, elemHeight - 2, cellCount) : ""}
+        {cellCount
+          ? renderChildren(elemWidth - 2, elemHeight - 2, cellCount)
+          : ""}
       </div>
     </div>
   )
@@ -63,5 +68,5 @@ export const Field: React.FC<FieldProps> = ({
 Field.defaultProps = {
   width: GAME_FIELDWIDTH,
   height: GAME_FIELDHEIGHT,
-  cellCount: GAME_CELLCOUNT
+  cellCount: GAME_CELLCOUNT,
 }

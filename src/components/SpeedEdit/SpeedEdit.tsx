@@ -7,12 +7,15 @@ export const isNum = (value: string) => {
 
 type SpeedEditProps = {
   startValue: number
+  placeHolder?: string
   onValueChange: (val: number) => void
+  step?: number
   id?: string
 }
 
 export const SpeedEdit = ({
   startValue,
+  placeHolder,
   onValueChange,
 }: SpeedEditProps) => {
   const [value, setValue] = useState(startValue)
@@ -25,10 +28,14 @@ export const SpeedEdit = ({
     <div className={styles.speedEditContainer}>
       <div className={styles.speedEditInput}>
         <input
+          placeholder={placeHolder}
           value={value}
-          style={{ width: "30px", color: "#41cb71"}}
+          style={{ width: "30px", color: "#41cb71" }}
           onChange={(e) => {
-            const val = e.target.value && isNum(e.target.value) ? parseInt(e.target.value) : 0
+            const val =
+              e.target.value && isNum(e.target.value)
+                ? parseInt(e.target.value)
+                : 0
             setValue(val)
           }}
           onKeyPress={(event) => {

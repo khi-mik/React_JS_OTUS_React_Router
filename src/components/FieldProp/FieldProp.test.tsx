@@ -22,10 +22,18 @@ describe("render tests", () => {
     let x = 0
     render(
       <FieldProp
-        onWidthChange={() => { x = 1 }}
-        onHeightChange={() => { x = 2 }}
-        onCellCountChange={() => { x = 3 }}
-        onPopulationChange={() => { x = 4 }}        
+        onWidthChange={() => {
+          x = 1
+        }}
+        onHeightChange={() => {
+          x = 2
+        }}
+        onCellCountChange={() => {
+          x = 3
+        }}
+        onPopulationChange={() => {
+          x = 4
+        }}
       />
     )
 

@@ -7,23 +7,29 @@ describe("render tests", () => {
     render(
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <LoginForm onSubmit={() => {}} /> }  />
-          <Route path="/login" element={ <LoginForm onSubmit={() => {}} /> }  /> 
+          <Route path="/" element={<LoginForm onSubmit={() => {}} />} />
+          <Route path="/login" element={<LoginForm onSubmit={() => {}} />} />
         </Routes>
       </BrowserRouter>
-      )
+    )
     expect(screen.getByPlaceholderText("Input your name")).toBeInTheDocument()
   })
 })
 
 describe("click tests", () => {
   it("submit called", () => {
-    let x = 'qwe1'
+    let x = "qwe1"
     render(
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <LoginForm onSubmit={() => (x = 'qwe1')} /> }  />
-          <Route path="/login" element={ <LoginForm onSubmit={() => (x = 'qwe1')} /> }  />          
+          <Route
+            path="/"
+            element={<LoginForm onSubmit={() => (x = "qwe1")} />}
+          />
+          <Route
+            path="/login"
+            element={<LoginForm onSubmit={() => (x = "qwe1")} />}
+          />
         </Routes>
       </BrowserRouter>
     )
@@ -32,6 +38,6 @@ describe("click tests", () => {
     act(() => {
       button.dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
-    expect(x).toBe('qwe1')
+    expect(x).toBe("qwe1")
   })
 })

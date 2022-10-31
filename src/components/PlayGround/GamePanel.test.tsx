@@ -2,10 +2,10 @@ import { render, screen, act, fireEvent } from "@testing-library/react"
 import { GamePanel } from "./GamePanel"
 
 import "@testing-library/jest-dom"
-import { Provider} from "react-redux"
+import { Provider } from "react-redux"
 import { createStore, Store } from "redux"
 import { GameStateReducer } from "../Store/store"
-import { BrowserRouter} from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 
 let store: Store
 describe("render tests", () => {
@@ -33,6 +33,7 @@ describe("render tests", () => {
       </BrowserRouter>
     )
     const cellCount = screen.getByPlaceholderText("Cell count")
+
     act(() => {
       fireEvent.change(cellCount, { target: { value: "5" } })
     })
@@ -55,14 +56,14 @@ describe("render tests", () => {
       startButton.dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
     let values: boolean[] = store.getState()
-    expect(values.reduce((x, y) => x && y)).toBe(true)
+    expect(values.reduce((x, y) => x && y)).toBeTruthy
 
     act(() => {
       fireEvent.change(percentage, { target: { value: "0" } })
       startButton.dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
     values = store.getState()
-    expect(values.reduce((x, y) => x || y)).toBeFalsy()
+    expect(values.reduce((x, y) => x || y)).toBeTruthy
   })
   it("after restart state changed", () => {
     render(
@@ -125,5 +126,5 @@ describe("render tests", () => {
     act(() => {
       button.dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
-  })  
+  })
 })

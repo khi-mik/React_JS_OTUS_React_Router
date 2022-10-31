@@ -19,6 +19,17 @@
                 "semi": false
             }
         ],
-        "@typescript-eslint/no-explicit-any": ["warn"]
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "@typescript-eslint/no-empty-function": ["off"],
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "no-empty-pattern": [0],
+
+        "@typescript-eslint/no-empty-interface": [
+            "error",
+            {
+              "allowSingleExtends": false
+            }
+          ]
     }
 }

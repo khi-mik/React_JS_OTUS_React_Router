@@ -1,4 +1,4 @@
-import { initialize, mutateCell, nextStepForCell, } from "./Game"
+import { initialize, mutateCell, nextStepForCell } from "./Game"
 
 describe("init tests", () => {
   test.each([
@@ -24,39 +24,57 @@ describe("nextStepForCell tests", () => {
   test.each([
     {
       states: [true, true, false, true, true, false, false, false, false],
-      cellInRow: 3, cellIndex: 0, expected: true,
+      cellInRow: 3,
+      cellIndex: 0,
+      expected: true,
     },
     {
       states: [true, false, false, true, true, false, false, false, false],
-      cellInRow: 3, cellIndex: 0, expected: true,
+      cellInRow: 3,
+      cellIndex: 0,
+      expected: true,
     },
     {
       states: [true, false, false, false, true, false, false, false, false],
-      cellInRow: 3, cellIndex: 0, expected: false,
+      cellInRow: 3,
+      cellIndex: 0,
+      expected: false,
     },
     {
       states: [false, true, false, true, true, false, false, false, false],
-      cellInRow: 3, cellIndex: 0, expected: true,
+      cellInRow: 3,
+      cellIndex: 0,
+      expected: true,
     },
     {
       states: [false, true, false, true, true, false, false, false, false],
-      cellInRow: 3, cellIndex: 1, expected: true,
+      cellInRow: 3,
+      cellIndex: 1,
+      expected: true,
     },
     {
       states: [false, true, false, true, false, false, false, false, false],
-      cellInRow: 3, cellIndex: 1, expected: false,
+      cellInRow: 3,
+      cellIndex: 1,
+      expected: false,
     },
     {
       states: [true, true, true, true, true, true, false, false, false],
-      cellInRow: 3, cellIndex: 1, expected: false,
+      cellInRow: 3,
+      cellIndex: 1,
+      expected: false,
     },
     {
       states: [false, true, true, true, false, false, false, false, false],
-      cellInRow: 3, cellIndex: 2, expected: false,
+      cellInRow: 3,
+      cellIndex: 2,
+      expected: false,
     },
     {
       states: [false, true, true, false, false, true, false, true],
-      cellInRow: 3, cellIndex: 5, expected: true,
+      cellInRow: 3,
+      cellIndex: 5,
+      expected: true,
     },
   ])("$index mutated ", ({ states, cellInRow, cellIndex, expected }) => {
     const result = nextStepForCell(states, cellInRow, cellIndex)

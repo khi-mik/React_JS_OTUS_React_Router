@@ -10,8 +10,8 @@ describe("render tests Stepper", () => {
 })
 
 describe("change Stepper value tests", () => {
+  let x = 0
   it("enter number and char", () => {
-    let x = 0
     render(
       <SpeedEdit
         onValueChange={(value) => {
@@ -35,7 +35,6 @@ describe("change Stepper value tests", () => {
     expect(x).toBe(10)
   })
   it("test other step", () => {
-    let x = 0
     render(
       <SpeedEdit
         onValueChange={(value) => {

@@ -1,7 +1,13 @@
 import { SettingsPanel } from "../GameSettingsPanel/Group"
-import { NumberTextBox } from "../Input/NumberTextBox"
 import styles from "./FieldProp.module.css"
-import { GAME_FIELDWIDTH, GAME_FIELDHEIGHT, GAME_CELLCOUNT, GAME_POPULATION } from "../Game/Game"
+import {
+  GAME_FIELDWIDTH,
+  GAME_FIELDHEIGHT,
+  GAME_CELLCOUNT,
+  GAME_POPULATION,
+} from "../Game/Game"
+
+import { SpeedEdit } from "../SpeedEdit/SpeedEdit"
 
 type FieldPropProps = {
   onWidthChange: (width: number) => void
@@ -14,48 +20,42 @@ export const FieldProp = ({
   onWidthChange,
   onHeightChange,
   onCellCountChange,
-  onPopulationChange
+  onPopulationChange,
 }: FieldPropProps) => {
-  const numberTextBoxClasses = `${styles.fieldPropElement} ${styles.fieldPropTextbox}`
-
   return (
     <SettingsPanel title="Field settings">
       <div className={styles.fieldPropPanel}>
         <div className={styles.fieldPropGroup}>
           <div className={styles.fieldPropElement}>Width:</div>
-          <NumberTextBox
-            className={numberTextBoxClasses}
+          <SpeedEdit
             placeHolder="Width"
-            defaultValue={GAME_FIELDWIDTH}
+            startValue={GAME_FIELDWIDTH}
             onValueChange={onWidthChange}
-          ></NumberTextBox> 
+          ></SpeedEdit>
         </div>
         <div className={styles.fieldPropGroup}>
           <div className={styles.fieldPropElement}>Height:</div>
-          <NumberTextBox
-            className={numberTextBoxClasses}
+          <SpeedEdit
             placeHolder="Height"
-            defaultValue={GAME_FIELDHEIGHT}
+            startValue={GAME_FIELDHEIGHT}
             onValueChange={onHeightChange}
-          ></NumberTextBox>
+          ></SpeedEdit>
         </div>
-        <div className={styles.fieldPropGroup}>  
+        <div className={styles.fieldPropGroup}>
           <div className={styles.fieldPropElement}>Cell count:</div>
-          <NumberTextBox
-            className={numberTextBoxClasses}
+          <SpeedEdit
             placeHolder="Cell count"
-            defaultValue={GAME_CELLCOUNT}
+            startValue={GAME_CELLCOUNT}
             onValueChange={onCellCountChange}
-          ></NumberTextBox>
+          ></SpeedEdit>
         </div>
         <div className={styles.fieldPropGroup}>
           <div className={styles.fieldPropElement}>Population:</div>
-          <NumberTextBox
-            className={numberTextBoxClasses}
+          <SpeedEdit
             placeHolder="Population"
-            defaultValue={GAME_POPULATION}
+            startValue={GAME_POPULATION}
             onValueChange={onPopulationChange}
-          ></NumberTextBox>
+          ></SpeedEdit>
         </div>
       </div>
     </SettingsPanel>

@@ -1,4 +1,4 @@
-import { render, screen, act, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import { Provider } from "react-redux"
 import { createStore, Store } from "redux"
 import "@testing-library/jest-dom"
@@ -39,10 +39,7 @@ describe("render tests", () => {
       </Provider>
     )
     const cell = screen.getByTestId("0")
-    act(() => {
-      //cell.dispatchEvent(new MouseEvent("click", { bubbles: true }))
-      fireEvent(cell, new MouseEvent("click", { bubbles: true }) )
-    })
+    fireEvent(cell, new MouseEvent("click", { bubbles: true }))
     expect(screen.getByTestId("0")).toHaveClass("cellDead")
   })
 })

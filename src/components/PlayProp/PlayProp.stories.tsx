@@ -1,13 +1,9 @@
 import { PlayProp } from "./PlayProp"
-export default {
-  title: "PlayProp",
-  component: PlayProp,
-}
+import { ComponentStory } from "@storybook/react"
 
-export const PlayPropDefault = () => (
-  <PlayProp
-    onRestart={() => {}}
-    onPlayChange={() => {}}
-    onSpeedChange={() => {}}
-  />
+const Template: ComponentStory<typeof PlayProp> = (args: any) => (
+  <PlayProp {...args} />
 )
+
+export const PlayPropDefault = Template.bind({})
+PlayPropDefault.args = {}

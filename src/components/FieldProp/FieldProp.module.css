@@ -1,6 +1,7 @@
 .fieldPropPanel {
   display: inline-flex;
   grid-gap: 10px;
+  margin-bottom: 30px;
 }
 
 .fieldPropGroup {

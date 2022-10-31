@@ -5,9 +5,7 @@ export default {
   component: SettingsPanel,
 }
 
-export const Empty = () => (
-  <SettingsPanel title="test"/>
-)
+export const Empty = () => <SettingsPanel title="test" />
 
 export const WithClid = () => (
   <SettingsPanel title="test">
